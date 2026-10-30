@@ -1,0 +1,34 @@
+{
+	"name": "free-ai-gateway",
+	"version": "0.5.2",
+	"description": "Cổng AI đa nhà cung cấp tương thích OpenAI, được điều khiển bởi phiên web trình duyệt",
+	"module": "index.ts",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"dev": "tsx watch index.ts",
+		"start": "tsx index.ts",
+		"test": "vitest run",
+		"check": "biome check --write .",
+		"lint": "biome lint .",
+		"lint:fix": "biome check --write --unsafe .",
+		"format": "biome format --write .",
+		"typecheck": "tsc --noEmit",
+		"webauth": "tsx index.ts webauth",
+		"build": "tsc && esbuild index.ts --bundle --platform=node --format=cjs --external:chromium-bidi --external:electron --outfile=dist/index.js"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "latest",
+		"@types/node": "^20",
+		"esbuild": "^0.24.0",
+		"tsx": "^4.0.0",
+		"typescript": "^5",
+		"vitest": "^1.0.0"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	},
+	"dependencies": {
+		"playwright-core": "^1.59.1"
+	}
+}

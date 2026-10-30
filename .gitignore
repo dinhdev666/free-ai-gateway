@@ -1,0 +1,44 @@
+# Phụ thuộc (pnpm install)
+node_modules
+
+# Đầu ra
+out
+dist
+
+# Script phát triển
+generate_git_history.py
+
+# Độ phủ mã nguồn
+coverage
+*.lcov
+
+# Nhật ký
+logs
+_.log
+report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
+
+# Tệp biến môi trường dotenv
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# Bộ nhớ đệm
+.eslintcache
+.cache
+*.tsbuildinfo
+
+# IDE dựa trên IntelliJ
+.idea
+
+# Cấu hình thư mục Finder (macOS)
+.DS_Store
+
+# IDE
+.vscode
+.cursor
+.cursorrulestsc.log
+
+# pnpm
+pnpm-lock.yaml

@@ -1,0 +1,36 @@
+name: CI — Tích hợp liên tục
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    name: Lint & Định dạng & Kiểm tra kiểu & Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cài đặt Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Cài đặt pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Cài đặt dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Kiểm tra lint & định dạng Biome
+        run: pnpm exec biome check .
+
+      - name: Kiểm tra kiểu TypeScript
+        run: pnpm exec tsc --noEmit
+
+      - name: Chạy test
+        run: pnpm test
